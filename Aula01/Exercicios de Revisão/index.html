@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dashboard de Sensores | SENAI</title>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SENAI_S%C3%A3o_Paulo_logo.png"
+        alt="Logo do SENAI"
+      />
+      <h1>Dashboard de Sensores</h1>
+      <span class="status online">● Online</span>
+    </header>
+    <main>
+      <section class="controles" aria-label="Controles do dashboard">
+        <button id="btnAtualizar" type="button">Atualizar dados</button>
+        <label for="filtro">Filtrar por tipo:</label>
+        <select id="filtro">
+          <option value="Todos">Todos</option>
+          <option value="Temperatura">Temperatura</option>
+          <option value="Umidade">Umidade</option>
+          <option value="Pressão">Pressão</option>
+        </select>
+      </section>
+      <section id="gridSensores" aria-label="Lista de sensores"></section>
+    </main>
+    <footer>
+      <p>
+        © SENAI Sensores · Última atualização:
+        <span id="horaAtualizacao">--:--:--</span>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

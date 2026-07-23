@@ -1,0 +1,141 @@
+:root {
+  --cor1: #0f172a;
+  --cor2: #2563eb;
+  --cor3: #ffffff;
+  --alerta: #ffb4b4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  font-family: Arial;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--cor1);
+  color: white;
+
+  padding: 20px;
+}
+header img {
+  width: 200px;
+}
+
+main {
+  display: grid;
+  gap: 20px;
+
+  padding: 20px;
+}
+
+.controles {
+  display: flex;
+  gap: 20px;
+}
+
+#gridSensores {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.card {
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-alerta {
+  border: 3px solid red;
+
+  background: var(--alerta);
+}
+
+footer {
+  text-align: center;
+
+  padding: 20px;
+}
+
+main button {
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+main select {
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+
+@media (max-width: 768px) {
+  #gridSensores {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-cabecalho {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.badge.normal {
+  background: #dcfce7;
+  color: #166534;
+}
+.badge.critico {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.tipo {
+  color: #475569;
+}
+.valor {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.valor span {
+  font-size: 1rem;
+}
+.btn-historico {
+  margin-top: auto;
+  background: #475569;
+  color: white;
+}
+.sem-resultados {
+  grid-column: 1 / -1;
+  padding: 25px;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+}
