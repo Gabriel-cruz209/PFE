@@ -220,3 +220,6 @@ main select {
   cursor: pointer;
   color: #ff0000;
 }
+#textoModal {
+    white-space: pre-wrap;
+}

@@ -103,14 +103,33 @@ function aplicarFiltro() {
 
 function atualizarSensores() {
   sensores.forEach((sensor) => {
-    sensor.valor = Number((sensor.valor + Math.random() * 4 - 2).toFixed(1));
+    switch (sensor.tipo) {
+      case "Temperatura":
+        sensor.valor += Math.random() * 2 - 1; // -1 até +1
+        break;
+
+      case "Umidade":
+        sensor.valor += Math.random() * 6 - 3; // -3 até +3
+
+        // Limita entre 0% e 100%
+        sensor.valor = Math.max(0, Math.min(100, sensor.valor));
+        break;
+
+      case "Pressão":
+        sensor.valor += Math.random() * 0.6 - 0.3; // -0.3 até +0.3
+
+        // Nunca negativa
+        sensor.valor = Math.max(0, sensor.valor);
+        break;
+    }
+
+    sensor.valor = Number(sensor.valor.toFixed(1));
 
     sensor.historico.push({
       valor: sensor.valor,
       horario: new Date().toLocaleTimeString("pt-BR"),
     });
 
-    // Mantém apenas os últimos 10 registros
     if (sensor.historico.length > 10) {
       sensor.historico.shift();
     }
