@@ -11,6 +11,7 @@ const sensores = [
     valor: 24.5,
     unidade: "°C",
     status: "normal",
+    historico: [],
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const sensores = [
     valor: 88,
     unidade: "%",
     status: "critico",
+    historico: [],
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const sensores = [
     valor: 6.2,
     unidade: "bar",
     status: "normal",
+    historico: [],
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ const sensores = [
     valor: -2,
     unidade: "°C",
     status: "normal",
+    historico: [],
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const sensores = [
     valor: 45,
     unidade: "%",
     status: "normal",
+    historico: [],
   },
   {
     id: 6,
@@ -51,6 +56,7 @@ const sensores = [
     valor: 98,
     unidade: "°C",
     status: "critico",
+    historico: [],
   },
 ];
 
@@ -98,7 +104,18 @@ function aplicarFiltro() {
 function atualizarSensores() {
   sensores.forEach((sensor) => {
     sensor.valor = Number((sensor.valor + Math.random() * 4 - 2).toFixed(1));
+
+    sensor.historico.push({
+      valor: sensor.valor,
+      horario: new Date().toLocaleTimeString("pt-BR"),
+    });
+
+    // Mantém apenas os últimos 10 registros
+    if (sensor.historico.length > 10) {
+      sensor.historico.shift();
+    }
   });
+
   aplicarFiltro();
   atualizarHora();
 }
@@ -110,10 +127,43 @@ grid.addEventListener("click", (evento) => {
   const sensor = sensores.find(
     (item) => item.id === Number(evento.target.dataset.id),
   );
-  alert(
-    `${sensor.nome}: leitura atual de ${formatarValor(sensor)} ${sensor.unidade}.`,
+  const historico = sensor.historico.length
+    ? sensor.historico
+        .map((item) => `${item.horario} - ${item.valor} ${sensor.unidade}`)
+        .reverse()
+        .join("\n")
+    : "Nenhuma leitura registrada.";
+
+  abrirModal(
+    `${sensor.nome}
+
+Leitura atual: ${formatarValor(sensor)} ${sensor.unidade}
+
+Últimas leituras:
+${historico}`,
   );
 });
 
 aplicarFiltro();
 atualizarHora();
+
+const modal = document.getElementById("modal");
+const textoModal = document.getElementById("textoModal");
+const fecharModal = document.getElementById("fecharModal");
+
+function abrirModal(mensagem) {
+  textoModal.textContent = mensagem;
+  modal.style.display = "flex";
+}
+
+function fechar() {
+  modal.style.display = "none";
+}
+
+fecharModal.addEventListener("click", fechar);
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    fechar();
+  }
+});

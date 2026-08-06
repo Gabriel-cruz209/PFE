@@ -2,7 +2,7 @@
   --cor1: #0f172a;
   --cor2: #2563eb;
   --cor3: #ffffff;
-  --alerta: #ffb4b4;
+  --alerta: #ff0000;
 }
 
 * {
@@ -68,9 +68,14 @@ main {
 
 .card-alerta {
   border: 3px solid red;
+  color: white;
 
   background: var(--alerta);
 }
+.card-alerta>p{
+  color:white;
+}
+
 
 footer {
   text-align: center;
@@ -83,6 +88,35 @@ main button {
   border: 1px solid #000000;
   border-radius: 7px;
 }
+header>img{
+  transition: transform 0.5s ease;
+}
+header>img:hover{
+  transform: rotate(180deg);
+}
+.controles>button{
+  background-color: #ff0000;
+  color: white;
+  border: 1px solid;
+  padding: 10px;
+  transition: transform 0.3s ease, padding 0.1s ease;
+}
+.controles>button:hover{
+  padding: 11px;
+}
+.controles{
+  align-items: center;
+}
+.controles>label{
+  font-size: large;
+}
+.controles>select{
+  background-color: white;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 8px;
+}
+
 main select {
   padding: 5px;
   border: 1px solid #000000;
@@ -129,8 +163,21 @@ main select {
 }
 .btn-historico {
   margin-top: auto;
-  background: #475569;
+  background: #494949;
   color: white;
+  transition: transform 0.3s ease, border 0.3s ease;
+  border: 2px solid #00000000;
+}
+.btn-historico:hover{
+  transform: translateY(-1px);
+  border-bottom: 2px solid #919191;
+  border-right: 2px solid #919191;
+}
+.card{
+  transition: transform 0.3s ease;
+}
+.card:hover{
+  transform: translateY(-3px);
 }
 .sem-resultados {
   grid-column: 1 / -1;
@@ -138,4 +185,38 @@ main select {
   text-align: center;
   background: white;
   border-radius: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-conteudo {
+  background: white;
+  padding: 20px;
+  margin: 50px;
+  width: 40px;
+  border-radius: 10px;
+  min-width: 500px;
+  position: relative;
+}
+.modal-conteudo>h2{
+  margin-bottom: 20px;
+}
+.modal-conteudo>p{
+  margin: 10px;
+  font-size: large;
+}
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff0000;
 }
