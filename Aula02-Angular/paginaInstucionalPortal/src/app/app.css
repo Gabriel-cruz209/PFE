@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+
+.ci{
+    display: flex;
+    flex-direction: column;
+    min-width: auto;
+    min-height: 100%;
+}

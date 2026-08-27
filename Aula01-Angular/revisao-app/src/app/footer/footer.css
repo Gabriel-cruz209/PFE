@@ -1,0 +1,16 @@
+.footer{
+    min-width: 100%;
+    background-color: gray;
+    height: 200px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer:hover{
+    background-color: aliceblue;
+    color: black;
+}

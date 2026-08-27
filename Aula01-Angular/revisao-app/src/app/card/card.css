@@ -1,0 +1,26 @@
+.card{
+    background-color: rgb(255, 125, 125);
+    width: 200px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size:  2em;
+    transition: transform 1.5s ease, border-radius 0.7s ease;
+    border-radius: 15px;
+    color: white;
+}
+
+.card:hover{
+    /* transform: translateY(-3px); */
+    transform: rotate(360deg) ;
+    border-radius: 50%;
+}
+
+.c-body{
+    display: flex ;
+    flex-direction: row;
+    justify-content: space-between;
+}
+   

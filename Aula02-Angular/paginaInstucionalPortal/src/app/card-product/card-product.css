@@ -1,0 +1,41 @@
+.cardproduct{
+    width: 100%;
+    min-height: 220px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: aliceblue;
+    border: 5px solid white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cardproduct:hover{
+    /* transform: translateY(-3px); */
+    background-color: aliceblue;
+    color: black;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    gap: 20px;
+}
+.card{
+    background-color: rgb(252, 253, 253);
+    width: 30%;
+    height: 100px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    color: black;
+    font-size: 1.5em;
+    margin: 15px;
+
+}
+ 
