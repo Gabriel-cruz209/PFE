@@ -1,41 +1,90 @@
-.cardproduct{
-    width: 100%;
-    min-height: 220px;
-    background-color: gray;
-    display: flex;
+:host {
+  display: block;
+}
+.courses {
+  padding: 40px;
+  background-color: #f2f2f2;
+}
+.section-heading {
+  margin-bottom: 25px;
+}
+.section-heading .eyebrow {
+  color: #d71920;
+  font-size: 12px;
+  font-weight: bold;
+}
+.section-heading h2 {
+  margin: 8px 0;
+}
+.section-heading p {
+  color: #666;
+}
+.section-heading > a {
+  color: #d71920;
+}
+.cards {
+  display: flex;
+  gap: 20px;
+}
+.card {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.course-icon {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px;
+  background-color: #eee;
+  color: #d71920;
+  font-weight: bold;
+}
+.tag {
+  color: #666;
+  font-size: 11px;
+}
+.card p {
+  color: #666;
+  line-height: 1.5;
+}
+.card > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.card a {
+  color: #d71920;
+}
+.quick-info {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.quick-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.quick-info strong {
+  font-size: 24px;
+  color: #ff5555;
+}
+@media (max-width: 900px) {
+  .cards {
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: aliceblue;
-    border: 5px solid white;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }
-
-.cardproduct:hover{
-    /* transform: translateY(-3px); */
-    background-color: aliceblue;
-    color: black;
-}
-
-.cards{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 200px;
-    width: 100%;
+@media (max-width: 600px) {
+  .courses {
+    padding: 30px 20px;
+  }
+  .quick-info {
+    flex-direction: column;
     gap: 20px;
+  }
 }
-.card{
-    background-color: rgb(252, 253, 253);
-    width: 30%;
-    height: 100px;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    color: black;
-    font-size: 1.5em;
-    margin: 15px;
-
-}
- 
